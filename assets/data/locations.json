@@ -2,27 +2,32 @@
     {
       "lat": -34.62245385,
       "lng": -58.49699386,
-      "name": "Avenida Segurola 1492"
+      "name": "Foodies Floresta",
+      "address": "Avenida Segurola 1492"
     },
     {
       "lat": -34.6323952,
       "lng": -58.46416573,
-      "name": "Varela 222"
+      "name": "Foodies Flores",
+      "address": "Varela 222"
     },
     {
       "lat": -34.68234086,
       "lng": -58.5556419,
-      "name": "Av. Dr. Arieta 3571"
+      "name": "Foodies San Justo",
+      "address": "Av. Dr. Arieta 3571"
     },
     {
       "lat": -34.58171291,
       "lng": -58.42224461,
-      "name": "Thames 2451"
+      "name": "Foodies Palermo",
+      "address": "Thames 2451"
     },
     {
       "lat": -34.608080,
       "lng": -58.462160,
-      "name": "Av. Donato Alvarez 1627"
+      "name": "Foodies Caballito",
+      "address": "Av. Donato Alvarez 1627"
     }
   ]
   

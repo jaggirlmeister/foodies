@@ -1,9 +1,8 @@
-let infoWindows = []; //array con todas las infoWindow
+let infoWindows = []; 
 
 function initMap() {
-    // The location of Uluru
+
     var segurola = {lat: -34.62245385, lng: -58.49699386};
-    // The map, centered at Uluru
     const map = new google.maps.Map(
         document.getElementById('map'),
         {
@@ -19,11 +18,10 @@ function initMap() {
             }
         });
     // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({position: segurola, map: map});
     map.setOptions({ minZoom: 3, maxZoom: 17 });
 
     fetchMarkers(map);
-    console.log("yay");
+
 }
 
 const fetchMarkers = async (map) =>{
@@ -32,7 +30,6 @@ const fetchMarkers = async (map) =>{
         const json = await response.json();
         console.log(json);
         json.forEach(marker => {
-            console.log("que pasa");
             addMarker(map, marker);
         });
     } catch (error) {
@@ -41,33 +38,33 @@ const fetchMarkers = async (map) =>{
 }
 
 const addMarker = (map, marker) => { 
-    //Destructuring de la info del marker
-    const { lat, lng, name } = marker;
 
-    //Armo la infowindow
-    const contentString = `
+
+    const { lat, lng, name, address } = marker;
+
+    var contentString = `
     <div class='thisWindowHook'>
         <h3>${name}</h3>
+        <p>${address}</p>
     </div>`;
-    
-    const infowindow = new google.maps.InfoWindow({
+
+    var infowindow = new google.maps.InfoWindow({
         content: contentString
     });
 
     infoWindows.push(infowindow);
 
-    const markerItem = new google.maps.Marker(
-        {
-            position: { lat: lat, lng: lng },
-            map: map,
-        }
-    );
-
-    markerItem.setMap(map);
+    var markerItem = new google.maps.Marker({
+        position: { lat: lat, lng: lng },
+        map: map,
+    });
 
     markerItem.addListener('click', function() {
-        infowindow.open(map, marker);
-    });
+        infoWindows.forEach(infowindow => {
+            infowindow.close();
+        })
+        infowindow.open(map, markerItem);
+    });  
     
 }
 
